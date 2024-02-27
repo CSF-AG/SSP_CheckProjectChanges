@@ -25,7 +25,7 @@ $projectFolders = Get-ChildItem -Path $rootDirectory -filter "*02_CAD*" -depth 2
 
 # Auslesen der Zielordner im Ordner 02_CAD
 foreach ($projectFolder in $projectFolders) {
-    $targetFolders = Get-ChildItem -Path $projectFolder -Recurse | Where-Object { $_.Name -Like "02_Kälte" -or $_.Name -Like "03_Kühlraum" -or $_.name -Like "05_Schema" }
+    $targetFolders = Get-ChildItem -Path $projectFolder -Recurse | Where-Object { $_.Name -Contains "Kälte" -or $_.Name -Like "03_Kühlraum" -or $_.name -Like "05_Schema" }
     
     # Zusammensetzen der Teilpfade zu einem vollstÃ¤ndigen Pfad
  foreach ($targetFolder in $targetFolders) {
